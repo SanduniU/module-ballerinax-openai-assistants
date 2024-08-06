@@ -15,13 +15,13 @@ To use the OpenAI Connector, you must have access to the OpenAI API through a [O
 
 
 2. Navigate to Dashboard -> API keys
-<img src=<link> alt="OpenAI Platform" style="width: 70%;">
+<img src=https://github.com/SanduniU/module-ballerinax-openai-assistants/blob/ecd5fff7d09298d3a491d941875357ac04f970c2/docs/setup/resources/api-key-dashboard.png alt="OpenAI Platform" style="width: 70%;">
 
 3. Click on the "Create new secret key" button
-<img src=<link> alt="OpenAI Platform" style="width: 70%;">
+<img src=https://github.com/SanduniU/module-ballerinax-openai-assistants/blob/ecd5fff7d09298d3a491d941875357ac04f970c2/docs/setup/resources/create-new-secret-key.png alt="OpenAI Platform" style="width: 70%;">
 
 4. Fill the details and click on Create secret key
-<img src=<link> style="width: 70%;">
+<img src=https://github.com/SanduniU/module-ballerinax-openai-assistants/blob/ecd5fff7d09298d3a491d941875357ac04f970c2/docs/setup/resources/saved-key.png style="width: 70%;">
 
 5. Store the API key securely to use in your application
 
