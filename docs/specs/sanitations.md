@@ -1,6 +1,6 @@
 _Authors_: @SanduniU \
 _Created_: 2024/08/05 \
-_Updated_: 2024/08/05 \
+_Updated_: 2024/08/06 \
 _Edition_: Swan Lake
 
 # Sanitation for OpenAPI specification
