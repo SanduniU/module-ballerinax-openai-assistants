@@ -182,8 +182,6 @@ public type CreateRunRequest record {|
     # 
     # We generally recommend altering this or temperature but not both.
     decimal? top_p = 1;
-    # If `true`, returns a stream of events that happen during the Run as server-sent events, terminating when the Run enters a terminal state with a `data: [DONE]` message.
-    boolean? 'stream?;
     # The maximum number of prompt tokens that may be used over the course of the run. The run will make a best effort to use only the number of prompt tokens specified, across multiple turns of the run. If the run exceeds the number of prompt tokens specified, the run will end with status `incomplete`. See `incomplete_details` for more info.
     int? max_prompt_tokens?;
     # The maximum number of completion tokens that may be used over the course of the run. The run will make a best effort to use only the number of completion tokens specified, across multiple turns of the run. If the run exceeds the number of completion tokens specified, the run will end with status `incomplete`. See `incomplete_details` for more info.
@@ -219,8 +217,6 @@ public type RunStepDetailsToolCallsCodeObject record {
 public type SubmitToolOutputsRunRequest record {|
     # A list of tools for which the outputs are being submitted.
     SubmitToolOutputsRunRequest_tool_outputs[] tool_outputs;
-    # If `true`, returns a stream of events that happen during the Run as server-sent events, terminating when the Run enters a terminal state with a `data: [DONE]` message.
-    boolean? 'stream?;
 |};
 
 # Provides a set of configurations for controlling the behaviours when communicating with a remote HTTP endpoint.
@@ -784,8 +780,6 @@ public type CreateThreadAndRunRequest record {|
     # 
     # We generally recommend altering this or temperature but not both.
     decimal? top_p = 1;
-    # If `true`, returns a stream of events that happen during the Run as server-sent events, terminating when the Run enters a terminal state with a `data: [DONE]` message.
-    boolean? 'stream?;
     # The maximum number of prompt tokens that may be used over the course of the run. The run will make a best effort to use only the number of prompt tokens specified, across multiple turns of the run. If the run exceeds the number of prompt tokens specified, the run will end with status `incomplete`. See `incomplete_details` for more info.
     int? max_prompt_tokens?;
     # The maximum number of completion tokens that may be used over the course of the run. The run will make a best effort to use only the number of completion tokens specified, across multiple turns of the run. If the run exceeds the number of completion tokens specified, the run will end with status `incomplete`. See `incomplete_details` for more info.
@@ -820,6 +814,14 @@ public type RunStepDetailsToolCallsCodeOutputLogsObject record {
     string logs;
 };
 
+public type ListAssistantsResponse record {
+    string 'object;
+    AssistantObject[] data;
+    string first_id;
+    string last_id;
+    boolean has_more;
+};
+
 public type CreateAssistantRequest_tool_resources_file_search record {
     # The [vector store](/docs/api-reference/vector-stores/object) attached to this assistant. There can be a maximum of 1 vector store attached to the assistant.
     @constraint:Array {maxLength: 1}
@@ -827,14 +829,6 @@ public type CreateAssistantRequest_tool_resources_file_search record {
     # A helper to create a [vector store](/docs/api-reference/vector-stores/object) with file_ids and attach it to this assistant. There can be a maximum of 1 vector store attached to the assistant.
     @constraint:Array {maxLength: 1}
     CreateAssistantRequest_tool_resources_file_search_vector_stores[] vector_stores?;
-};
-
-public type ListAssistantsResponse record {
-    string 'object;
-    AssistantObject[] data;
-    string first_id;
-    string last_id;
-    boolean has_more;
 };
 
 # Provides settings related to HTTP/1.x protocol.

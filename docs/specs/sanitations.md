@@ -59,6 +59,17 @@ This document records the sanitation done on top of the official OpenAPI specifi
       field 'first_id' in record 'openai.Assistant:ListRunStepsResponse' should be of type 'string', found '()'
       field 'last_id' in record 'openai.Assistant:ListRunStepsResponse' should be of type 'string', found '()'
       ```
+4. **Removed the `stream` field from `CreateThreadAndRunRequest`, `CreateRunRequest`, and `SubmitToolOutputsRunRequest` records**:
+
+   - **Changed Schemas**: `CreateThreadAndRunRequest`, `CreateRunRequest`, `SubmitToolOutputsRunRequest`
+
+   - **Original**:
+      - Included `stream` field for streaming responses(If `true`, returns a stream of events that happen during the Run as server-sent events, terminating when the Run enters a terminal state with a `data: [DONE]` message).
+
+   - **Updated**:
+      - Removed `stream` field.
+
+   - **Reason**: This change is necessary because the Ballerina OpenAPI tool does not support the streaming responses feature, leading to payload binding failures.
 
 ---
 
