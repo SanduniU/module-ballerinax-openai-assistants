@@ -1,8 +1,8 @@
 ## Overview
 
-OpenAI is a premier AI research organization focused on developing and promoting friendly AI technologies. The organization aims to create advanced AI models that enhance various applications, ensuring their ethical and responsible use.
+OpenAI is an American artificial intelligence research organization that comprises both a non-profit and a for-profit entity. The organization focuses on conducting cutting-edge AI research with the goal of developing friendly AI that benefits humanity. By advancing the state of AI, OpenAI aims to ensure that powerful AI technologies are used responsibly and ethically, promoting innovation while addressing potential risks.
 
-The [OpenAI Assistants API](https://platform.openai.com/docs/api-reference/assistants) Connector allows developers to seamlessly integrate OpenAI's advanced language models into their applications. This connector provides tools to build powerful [OpenAI Assistants](https://platform.openai.com/docs/assistants/overview) capable of performing a wide range of tasks, such as generating human-like text, managing conversations with persistent threads, and utilizing multiple tools in parallel. OpenAI has recently announced a variety of new features and improvements to the Assistants API, moving their Beta to a new API version, OpenAI-Beta: assistants=v2. 
+The [OpenAI Assistants API](https://platform.openai.com/docs/api-reference/assistants) Connector allows developers to seamlessly integrate OpenAI's advanced language models into their applications. This connector provides tools to build powerful [OpenAI Assistants](https://platform.openai.com/docs/assistants/overview) capable of performing a wide range of tasks, such as generating human-like text, managing conversations with persistent threads, and utilizing multiple tools in parallel. OpenAI has recently announced a variety of new features and improvements to the Assistants API, moving their Beta to a [new API version](https://platform.openai.com/docs/assistants/whats-new), `OpenAI-Beta: assistants=v2`. 
 
 
 ## Setup guide
@@ -162,7 +162,7 @@ public function main() returns error?{
 
 ### Step 5: Create a run
 
-Once all the user Messages have been added to the Thread, you can Run the Thread with any Assistant. Creating a Run uses the model and tools associated with the Assistant to generate a response. These responses are added to the Thread as assistant Messages.
+Once all the user Messages have been added to the Thread, you can Run the Thread with any Assistant. Creating a Run uses the model and tools associated with the Assistant to generate a response. These responses are added to the Thread as Assistant Messages.
 
 ```ballerina
 public function main() returns error?{
