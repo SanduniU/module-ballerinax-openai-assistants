@@ -1,6 +1,6 @@
 _Authors_: @SanduniU \
 _Created_: 2024/08/05 \
-_Updated_: 2024/08/06 \
+_Updated_: 2024/08/07 \
 _Edition_: Swan Lake
 
 # Sanitation for OpenAPI specification
@@ -90,6 +90,6 @@ This document records the sanitation done on top of the official OpenAPI specifi
 The following command was used to generate the Ballerina client from the OpenAPI specification. The command should be executed from the repository root directory.
 
 ```bash
-bal openapi -i docs/spec/openapi.yaml --mode client --tags Images --license docs/license.txt -o ballerina
+bal openapi -i docs/spec/openapi.yaml --mode client --tags Assistant --license docs/license.txt -o ballerina
 ```
 Note: The license year is hardcoded to 2024, change if necessary.
