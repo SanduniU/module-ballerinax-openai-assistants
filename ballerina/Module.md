@@ -15,13 +15,13 @@ To use the OpenAI Connector, you must have access to the OpenAI API through a [O
 
 
 2. Navigate to Dashboard -> API keys
-<img src=https://github.com/SanduniU/module-ballerinax-openai-assistants/blob/ecd5fff7d09298d3a491d941875357ac04f970c2/docs/setup/resources/api-key-dashboard.png alt="OpenAI Platform" style="width: 70%;">
+<img src=https://github.com/user-attachments/assets/d67a6975-b06a-47c5-92a4-930996796c43 alt="OpenAI Platform" style="width: 70%;">
 
 3. Click on the "Create new secret key" button
-<img src=https://github.com/SanduniU/module-ballerinax-openai-assistants/blob/ecd5fff7d09298d3a491d941875357ac04f970c2/docs/setup/resources/create-new-secret-key.png alt="OpenAI Platform" style="width: 70%;">
+<img src=https://github.com/user-attachments/assets/b0702bac-cc81-4d9e-9b97-8f168b326dd6 alt="OpenAI Platform" style="width: 70%;">
 
 4. Fill the details and click on Create secret key
-<img src=https://github.com/SanduniU/module-ballerinax-openai-assistants/blob/ecd5fff7d09298d3a491d941875357ac04f970c2/docs/setup/resources/saved-key.png style="width: 70%;">
+<img src=https://github.com/user-attachments/assets/a58fcffa-1a57-47d0-aff9-b40173e2c94a alt="OpenAI Platform" style="width: 70%;">
 
 5. Store the API key securely to use in your application
 
@@ -45,7 +45,7 @@ A typical integration of the Assistants API has the following flow:
 This starter guide walks through the key steps to create and run an Assistant that uses the Code Interpreter tool. In this example, we're creating an Assistant that is a personal math tutor.
 ### Setting HTTP Headers in Ballerina
 
-Calls to the Assistants API require that you pass a beta HTTP header. This is handled automatically if you’re using OpenAI’s official Python or Node.js SDKs. In Ballerina, you can define the header as follows:
+Calls to the Assistants API require that you pass a beta HTTP header. In Ballerina, you can define the header as follows:
 
 ```ballerina
 final map<string|string[]> headers = {
@@ -120,6 +120,7 @@ public function main() returns error? {
 A Thread represents a conversation between a user and one or many Assistants. You can create a Thread when a user (or your AI application) starts a conversation with your Assistant.
 
 ```ballerina
+public function main() returns error?{
     openai_assistants:CreateThreadRequest createThreadReq = {
         messages: []
     };
@@ -131,6 +132,7 @@ A Thread represents a conversation between a user and one or many Assistants. Yo
     } else{
         io:println("Error creating thread: ", threadResponse);
     }
+}
 ```
 
 ### Step 4: Add a message to the thread
@@ -138,6 +140,7 @@ A Thread represents a conversation between a user and one or many Assistants. Yo
 The contents of the messages your users or applications create are added as Message objects to the Thread. Messages can contain both text and files. There is no limit to the number of Messages you can add to Threads — we smartly truncate any context that does not fit into the model's context window.
 
 ```ballerina
+public function main() returns error?{
     string threadId = "your_thread_id";
 
     openai_assistants:CreateMessageRequest createMsgReq = {
@@ -153,6 +156,7 @@ The contents of the messages your users or applications create are added as Mess
     } else {
         io:println("Error creating Message: ", messageResponse);
     }
+}
 ```
 
 
@@ -161,6 +165,7 @@ The contents of the messages your users or applications create are added as Mess
 Once all the user Messages have been added to the Thread, you can Run the Thread with any Assistant. Creating a Run uses the model and tools associated with the Assistant to generate a response. These responses are added to the Thread as assistant Messages.
 
 ```ballerina
+public function main() returns error?{
    string threadId = "your_thread_id";
 
     openai_assistants:CreateRunRequest runReq = {
@@ -180,9 +185,11 @@ Once all the user Messages have been added to the Thread, you can Run the Thread
     } else {
         io:println("Error creating run: ", resp);
     }
+}
 ```
 Once the Run completes, you can list the Messages added to the Thread by the Assistant.
 ```
+public function main() returns error?{
     string threadId = "your_thread_id";
 
     map<string|string[]> headers = {
@@ -196,7 +203,7 @@ Once the Run completes, you can list the Messages added to the Thread by the Ass
     } else {
         io:println("Error retrieving messages: ", res);
     }
-
+}
 ```
 
 ## Examples
