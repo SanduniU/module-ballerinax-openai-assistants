@@ -71,6 +71,18 @@ This document records the sanitation done on top of the official OpenAPI specifi
 
    - **Reason**: This change is necessary because the Ballerina OpenAPI tool does not support the streaming responses feature, leading to payload binding failures.
 
+5. **Removed the `expired_at` and `metadata` attributes from the required fields of `RunStepObject` schema**:
+
+   - **Changed Schema**: `RunStepObject`
+
+   - **Original**:
+      - Required fields: `expired_at`, `metadata`
+
+   - **Updated**:
+      - Required fields: Removed `expired_at` and `metadata`
+
+   - **Reason**: This change addresses the payload binding failures occurring due to the inclusion of `expired_at` and `metadata` as required fields.
+
 ---
 
 ## OpenAPI cli command

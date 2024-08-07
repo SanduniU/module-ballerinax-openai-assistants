@@ -12252,11 +12252,9 @@ components:
                 - status
                 - step_details
                 - last_error
-                - expired_at
                 - cancelled_at
                 - failed_at
                 - completed_at
-                - metadata
                 - usage
             x-oaiMeta:
                 name: The run step object

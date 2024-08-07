@@ -500,7 +500,7 @@ public type RunStepObject record {
     RunStepDetailsMessageCreationObject|RunStepDetailsToolCallsObject step_details;
     RunStepObject_last_error? last_error;
     # The Unix timestamp (in seconds) for when the run step expired. A step is considered expired if the parent run is expired.
-    int? expired_at;
+    int? expired_at?;
     # The Unix timestamp (in seconds) for when the run step was cancelled.
     int? cancelled_at;
     # The Unix timestamp (in seconds) for when the run step failed.
@@ -508,7 +508,7 @@ public type RunStepObject record {
     # The Unix timestamp (in seconds) for when the run step completed.
     int? completed_at;
     # Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maxium of 512 characters long.
-    record {}? metadata;
+    record {}? metadata?;
     RunStepCompletionUsage? usage;
 };
 
@@ -814,14 +814,6 @@ public type RunStepDetailsToolCallsCodeOutputLogsObject record {
     string logs;
 };
 
-public type ListAssistantsResponse record {
-    string 'object;
-    AssistantObject[] data;
-    string first_id;
-    string last_id;
-    boolean has_more;
-};
-
 public type CreateAssistantRequest_tool_resources_file_search record {
     # The [vector store](/docs/api-reference/vector-stores/object) attached to this assistant. There can be a maximum of 1 vector store attached to the assistant.
     @constraint:Array {maxLength: 1}
@@ -829,6 +821,14 @@ public type CreateAssistantRequest_tool_resources_file_search record {
     # A helper to create a [vector store](/docs/api-reference/vector-stores/object) with file_ids and attach it to this assistant. There can be a maximum of 1 vector store attached to the assistant.
     @constraint:Array {maxLength: 1}
     CreateAssistantRequest_tool_resources_file_search_vector_stores[] vector_stores?;
+};
+
+public type ListAssistantsResponse record {
+    string 'object;
+    AssistantObject[] data;
+    string first_id;
+    string last_id;
+    boolean has_more;
 };
 
 # Provides settings related to HTTP/1.x protocol.
